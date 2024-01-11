@@ -12,19 +12,103 @@
 
     <div id="quiz-container">
         <div id="question-container">Question</div>
-        <div id="options-container">
-          <button>1</button>
-          <button>2</button>
-          <button>3</button>
-          <button>4</button>
+        <div id="options-container"></div>
+        <div id="result-container">
+            <p>Your Score: <span id="score">0</span></p>
+            <p id="feedback"></p>
+            <button onclick="restartQuiz()">Play Again</button>
         </div>
     </div>
 
     <div class="social">
       <a href="#">Facebook<i class="fab fa-facebook"></i></a>
-      <a href="https://www.youtube.com/watch?v=69RdQFDuYPI" target="_blank">Youtube<i class="fab fa-youtube"></i></a>
+      <a href="https://www.youtube.com/watch?v=bqryE-ZrFHM" target="_blank">Youtube<i class="fab fa-youtube"></i></a>
       <a href="#">Instagram<i class="fab fa-instagram"></i></a>
       <a href="#">Twitter<i class="fab fa-twitter"></i></a>
     </div>
+
+    <script>
+        // =======================000 DATA 0000 ==============================
+	
+        var quizData = [
+          {
+            question: "Who is the founder of Reggae Music?",
+            options: ["Bob Marley", "Toots and Maytals", "Lee Perry", "Shaggy"],
+            correctAnswer: "Toots and Maytals",
+            subsquestions: {
+            question: "In 1968, the band Toots and the Maytals recorded their first Reggae song titled?",
+            options: ["Reggae", "Jah", "54-46", "Buffalo"],
+            correctAnswer: "54-46"
+            }
+          }
+        ]
+        // =============================DATA =================================
+    
+    
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        const questionContainer = document.getElementById("question-container");
+        const optionsContainer = document.getElementById("options-container");
+        const resultContainer = document.getElementById("result-container");
+        const scoreSpan = document.getElementById("score");
+        const feedbackParagraph = document.getElementById("feedback");
+
+        function startQuiz() {
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const currentQuestion = quizData[currentQuestionIndex];
+            questionContainer.innerHTML = currentQuestion.question;
+
+            optionsContainer.innerHTML = "";
+            for (let i = 0; i < currentQuestion.options.length; i++) {
+                const optionButton = document.createElement("button");
+                optionButton.innerText = currentQuestion.options[i];
+                optionButton.addEventListener("click", function () {
+                    checkAnswer(currentQuestion.options[i]);
+                });
+                optionsContainer.appendChild(optionButton);
+            }
+        }
+
+        function checkAnswer(userAnswer) {
+            const currentQuestion = quizData[currentQuestionIndex];
+            if (userAnswer === currentQuestion.correctAnswer) {
+                score = score + 1;
+            }
+
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex < quizData.length) {
+                showQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            resultContainer.style.display = "block";
+            scoreSpan.innerText = score;
+            
+            if (score === quizData.length) {
+                feedbackParagraph.innerText = "Congratulations! You got all the answers right.";
+            } else {
+                feedbackParagraph.innerText = "Good effort! Keep practicing.";            
+                alert('Good Job');
+            }
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            resultContainer.style.display = "none";
+            startQuiz();
+        }
+
+        startQuiz();
+    </script>
+
   </body>
 </html>
