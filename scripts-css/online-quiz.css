@@ -11,10 +11,9 @@ body {
 #quiz-container {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 30%;
   margin-top: -50px;
   margin-left: -50px;
-  height: 100px;
   width: 600px;
 }
 
