@@ -8,6 +8,7 @@ const resultContainer = document.getElementById("result-container");
 const scoreSpan = document.getElementById("score");
 const feedbackParagraph = document.getElementById("feedback");
 
+
 function startQuiz() {
     showQuestion();
 }
@@ -28,12 +29,13 @@ function showQuestion() {
 }
 
 function checkAnswer(userAnswer) {
+
     const currentQuestion = quizData[currentQuestionIndex];
     if (userAnswer === currentQuestion.correctAnswer) {
         score = score + 1;
     }
 
-    currentQuestionIndex++;
+    currentQuestionIndex = currentQuestionIndex + 1;
 
     if (currentQuestionIndex < quizData.length) {
         showQuestion();
@@ -43,14 +45,16 @@ function checkAnswer(userAnswer) {
 }
 
 function showResult() {
+    
     resultContainer.style.display = "block";
     scoreSpan.innerText = score;
     
     if (score === quizData.length) {
         feedbackParagraph.innerText = "Congratulations! You got all the answers right.";
-    } else {
-        feedbackParagraph.innerText = "Good effort! Keep practicing.";            
         alert('Good Job');
+    } else {
+        feedbackParagraph.innerText = "Good effort! Keep practicing.";           
+        
     }
 }
 
