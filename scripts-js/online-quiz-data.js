@@ -2,12 +2,7 @@ const quizData = [
   {
     question: "Who started reggae music in Jamaica?",
     options: ["Bob Marley", "Toots and the Maytals", "Lee Perry", "Shaggy"],
-    correctAnswer: "Toots and the Maytals",
-    subquestion: {
-      question: "In 1968, the band Toots and the Maytals recorded their first Reggae song titled?",
-      options: ["Give me Hope", "Jah live", "54-46 was my Number", "Buffalo soldier"],
-      correctAnswer: "54-46  was my Number"
-    }
+    correctAnswer: "Toots and the Maytals"
   },
 
   {
@@ -60,20 +55,20 @@ const quizData = [
   {
     question: "Who is considered the 'Queen of Reggae'?",
     options: ["Marcia Griffiths", "Queen Ifrica", "Sister Nancy", "Althea and Donna"],
-    correctAnswer: "Marcia Griffiths",
-    subquestion: [
-      {
-        question: "In which female reggae group did Marcia Griffiths originally gain fame?",
-        options: ["I-Threes", "The Melodians", "The Pioneers", "The Soulettes"],
-        correctAnswer: "The Soulettes"
-      },
-      {
-        question: "Marcia Griffiths collaborated with Bob Marley on the duet ______.",
-        options: ["One Love", "No Woman, No Cry", "The Electric Slide", "Three Little Birds"],
-        correctAnswer: "No Woman, No Cry"
-      }
-    ]
+    correctAnswer: "Marcia Griffiths"
+   
   },
+  {
+    question: "In which female reggae group did Marcia Griffiths originally gain fame?",
+    options: ["I-Threes", "The Melodians", "The Pioneers", "The Soulettes"],
+    correctAnswer: "The Soulettes"
+  },
+
+  {
+    question: "Marcia Griffiths collaborated with Bob Marley on the duet ______.",
+    options: ["One Love", "No Woman, No Cry", "The Electric Slide", "Three Little Birds"],
+    correctAnswer: "No Woman, No Cry"
+  }
 ];
 
 
