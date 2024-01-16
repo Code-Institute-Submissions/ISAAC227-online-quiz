@@ -1,6 +1,6 @@
 let currentQuestionIndex = 0;
 let score = 0;
-let username = "";
+var username = "";
 
 const startQuestioneer =document.getElementById("start-questioneer");
 const quizContainer = document.getElementById("quiz-container");
