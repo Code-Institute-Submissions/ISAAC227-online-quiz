@@ -1,11 +1,29 @@
 let currentQuestionIndex = 0;
 let score = 0;
+let username = "";
 
+const startQuestioneer =document.getElementById("start-questioneer");
+const quizContainer = document.getElementById("quiz-container");
 const questionContainer = document.getElementById("question-container");
 const optionsContainer = document.getElementById("options-container");
 const resultContainer = document.getElementById("result-container");
 const scoreSpan = document.getElementById("score");
 const feedbackParagraph = document.getElementById("feedback");
+const usernameid = document.getElementById("username-id")
+
+function toggleElement(value) {
+  username = value;
+  if (!username) {
+    quizContainer.style.display = 'none';
+    startQuestioneer.style.display = 'block';
+  } else {
+    startQuestioneer.style.display = 'none';
+    quizContainer.style.display = 'block';
+    usernameid.innerHTML = username || "";
+  }
+}
+
+toggleElement();
 
 function startQuiz() {
   showQuestion();
@@ -55,7 +73,7 @@ function checkAnswer(userAnswer) {
       feedbackParagraph.innerText = "Congratulations! You got all the answers right.";
       alert('Good Job'); 
     } else {
-      feedbackParagraph.innerText = "Good effort! Keep practicing.";
+      feedbackParagraph.innerText = "Good effort! Keep practicing, "+ username;
     }
   }
 function restartQuiz() {

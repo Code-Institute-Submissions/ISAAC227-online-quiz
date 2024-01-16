@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="./scripts-css/social-buttons.css" /> 
     <link rel="stylesheet" href="./scripts-css/online-quiz.css" /> 
+    
 </head>
   <body>
     <header>
@@ -19,9 +20,18 @@
                 <li><a href="#artists">ARTISTS</a></li>
                 <li><a href="#genres">GENRES</a></li>
                 <li><a href="#playlist">PLAYLIST</a></li>
+                <li><a id="username-id" href="#playlist">USERNAME</a></li>
             </ul>
         </nav>
     </header>
+<div id="start-questioneer">
+    <label title="user name" for="username">
+        Please enter you name to start quiz
+    </label>
+
+    <br/>
+    <input id="username name" name="username" onchange="toggleElement(event.target.value)"/>
+</div>
 
     <div id="quiz-container">
         <div id="question-container">Question</div>

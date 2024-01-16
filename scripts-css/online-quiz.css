@@ -72,7 +72,12 @@ nav ul li a:hover {
   display: block;
 }
 
-#quiz-container {
+#start-questioneer label{
+  background-color: aqua;
+  border-radius: 5px;
+}
+
+#quiz-container,#start-questioneer {
   position: absolute;
   top: 50%;
   left: 30%;
